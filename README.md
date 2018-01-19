@@ -1,6 +1,6 @@
 ## A purrr cookbook
 
-> Disclaimer: this is still a work in progree
+> Disclaimer: this is still a work in progress
 
 A series of {purrr} common receipes as a cookbookdown.
 
