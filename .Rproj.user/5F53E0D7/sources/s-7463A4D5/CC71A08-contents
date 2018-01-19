@@ -12,3 +12,4 @@ rmd_files: [
   "code-optim.Rmd", 
   "data-wrangling.Rmd"
 ]
+output_dir: "docs"
