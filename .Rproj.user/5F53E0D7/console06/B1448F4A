@@ -231,3 +231,178 @@ Bash completion has been installed to:
 Initialized empty Git repository in /Users/colin/Seafile/documents_colin/R/purrrcookbook/.git/
 ]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git add -A
 ]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git commit -a -m "first commit 👶"
+[master (root-commit) bcd0c87] first commit 👶
+ 158 files changed, 13598 insertions(+)
+ create mode 100644 .RData
+ create mode 100644 .Rhistory
+ create mode 100644 .Rproj.user/5F53E0D7/console06/B1448F4A
+ create mode 100644 .Rproj.user/5F53E0D7/console06/B1448F4A.env
+ create mode 100644 .Rproj.user/5F53E0D7/console06/INDEX001
+ create mode 100644 .Rproj.user/5F53E0D7/pcs/files-pane.pper
+ create mode 100644 .Rproj.user/5F53E0D7/pcs/source-pane.pper
+ create mode 100644 .Rproj.user/5F53E0D7/pcs/windowlayoutstate.pper
+ create mode 100644 .Rproj.user/5F53E0D7/pcs/workbench-pane.pper
+ create mode 100644 .Rproj.user/5F53E0D7/persistent-state
+ create mode 100644 .Rproj.user/5F53E0D7/rmd-outputs
+ create mode 100644 .Rproj.user/5F53E0D7/saved_source_markers
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/15912DE9
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/17B35D8E
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/19ED225B
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/1EB3F136
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/25612D70
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/2CD3928F
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/36FFBF7F
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/45AC8244
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/45DE76F3
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/47F14F85
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/4812211F
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/4B35AA35
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/54BE33EB
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/623ED7F2
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/78C6F526
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/8558E642
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/8ACA37E5
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/977676D5
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/A3A451DB
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/A3B8DD02
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/A681361E
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/ABEA3F22
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/BC0CA23D
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/C5EC0028
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/D8DC5DEE
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/DAAD3860
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/DD777DEE
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/E4CD308C
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/EA526EF3
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/F48429FD
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/F663482D
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/F81873B6
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/FFEE8EFD
+ create mode 100644 .Rproj.user/5F53E0D7/sources/prop/INDEX
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/13902B70
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/13902B70-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/29C9E3DD
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/29C9E3DD-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/34596095-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/575E35DA-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/58C51A52-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/5D8BE6A3-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/65FB2C4A-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/787A31D6-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/8316535A
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/8316535A-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/8A6FE099-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/B26C0956
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/B26C0956-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/CC71A08
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/CC71A08-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/E124C677-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/F29603B4-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/F4B20051-contents
+ create mode 100644 .Rproj.user/5F53E0D7/sources/s-7463A4D5/lock_file
+ create mode 100644 .Rproj.user/shared/notebooks/1CA9621D-webmining/1/5F53E0D76BB710DA/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/1CA9621D-webmining/1/5F53E0D77463A4D5/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/1CA9621D-webmining/1/5F53E0D7BC5D4DEC/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/1CA9621D-webmining/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/57726029-intro/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/95B7313E-basics/1/5F53E0D77463A4D5/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/95B7313E-basics/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/98AEBD6F-data-wrangling/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D74BB9F9B0/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D74BED8425/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D77463A4D5/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D77DF0F42E/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D7831C07FE/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D788E0BC1D/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D78EAAD23E/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D797F9E39B/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D7A01679E6/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D7B393B584/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D7BC5D4DEC/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/5F53E0D7FD9F7783/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FC61AA20-index/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/FF18FE3-code-optim/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
+ create mode 100644 .Rproj.user/shared/notebooks/paths
+ create mode 100644 README.md
+ create mode 100644 _book/how-to-read-this-book.html
+ create mode 100644 _book/index.html
+ create mode 100644 _book/intro.html
+ create mode 100644 _book/libs/gitbook-2.6.7/css/fontawesome/fontawesome-webfont.ttf
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-bookdown.css
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-fontsettings.css
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-highlight.css
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-search.css
+ create mode 100644 _book/libs/gitbook-2.6.7/css/style.css
+ create mode 100644 _book/libs/gitbook-2.6.7/js/app.min.js
+ create mode 100644 _book/libs/gitbook-2.6.7/js/jquery.highlight.js
+ create mode 100644 _book/libs/gitbook-2.6.7/js/lunr.js
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-bookdown.js
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-fontsettings.js
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-search.js
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-sharing.js
+ create mode 100644 _book/libs/jquery-2.2.3/jquery.min.js
+ create mode 100644 _book/optim.html
+ create mode 100644 _book/purrr_hex.png
+ create mode 100644 _book/purrrcookbook_files/figure-html/unnamed-chunk-11-1.png
+ create mode 100644 _book/purrrcookbook_files/figure-html/unnamed-chunk-11-2.png
+ create mode 100644 _book/purrrcookbook_files/figure-html/unnamed-chunk-12-1.png
+ create mode 100644 _book/purrrcookbook_files/figure-html/unnamed-chunk-12-2.png
+ create mode 100644 _book/purrrcookbook_files/figure-html/unnamed-chunk-7-1.png
+ create mode 100644 _book/purrrcookbook_files/figure-html/unnamed-chunk-7-2.png
+ create mode 100644 _book/references.html
+ create mode 100644 _book/search_index.json
+ create mode 100644 _book/stats.html
+ create mode 100644 _book/style.css
+ create mode 100644 _book/tm.html
+ create mode 100644 _book/webmining.html
+ create mode 100644 _book/wrangling.html
+ create mode 100644 _bookdown.yml
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-10-1.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-10-2.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-11-1.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-11-2.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-12-1.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-12-2.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-6-1.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-6-2.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-7-1.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-7-2.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-9-1.png
+ create mode 100644 _bookdown_files/purrrcookbook_files/figure-html/unnamed-chunk-9-2.png
+ create mode 100644 _output.yml
+ create mode 100644 a.json
+ create mode 100644 basics.Rmd
+ create mode 100644 book.bib
+ create mode 100644 code-optim.Rmd
+ create mode 100644 data-wrangling.Rmd
+ create mode 100644 index.Rmd
+ create mode 100644 intro.Rmd
+ create mode 100644 packages.bib
+ create mode 100644 preamble.tex
+ create mode 100644 purrr_hex.png
+ create mode 100644 purrrcookbook.Rproj
+ create mode 100644 skeleton
+ create mode 100644 statistics.Rmd
+ create mode 100644 style.css
+ create mode 100644 test.json
+ create mode 100644 text-wrangling.Rmd
+ create mode 100644 titanic.csv
+ create mode 100755 titanic_test.csv
+ create mode 100755 titanic_train.csv
+ create mode 100644 webmining.Rmd
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git remote add origin https://githu b.com/ColinFay/purrr-cookbook.git
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git push -u origin master
+Counting objects: 166, done.
+Delta compression using up to 4 threads.
+Compressing objects:   0% (1/127)   Compressing objects:   1% (2/127)   Compressing objects:   2% (3/127)   Compressing objects:   3% (4/127)   Compressing objects:   4% (6/127)   Compressing objects:   5% (7/127)   Compressing objects:   6% (8/127)   Compressing objects:   7% (9/127)   Compressing objects:   8% (11/127)   Compressing objects:   9% (12/127)   Compressing objects:  10% (13/127)   Compressing objects:  11% (14/127)   Compressing objects:  12% (16/127)   Compressing objects:  13% (17/127)   Compressing objects:  14% (18/127)   Compressing objects:  15% (20/127)   Compressing objects:  16% (21/127)   Compressing objects:  17% (22/127)   Compressing objects:  18% (23/127)   Compressing objects:  19% (25/127)   Compressing objects:  20% (26/127)   Compressing objects:  21% (27/127)   Compressing objects:  22% (28/127)   Compressing objects:  23% (30/127)   Compressing objects:  24% (31/127)   Compressing objects:  25% (32/127)   Compressing objects:  26% (34/127)   Compressing objects:  27% (35/127)   Compressing objects:  28% (36/127)   Compressing objects:  29% (37/127)   Compressing objects:  30% (39/127)   Compressing objects:  31% (40/127)   Compressing objects:  32% (41/127)   Compressing objects:  33% (42/127)   Compressing objects:  34% (44/127)   Compressing objects:  35% (45/127)   Compressing objects:  36% (46/127)   Compressing objects:  37% (47/127)   Compressing objects:  38% (49/127)   Compressing objects:  39% (50/127)   Compressing objects:  40% (51/127)   Compressing objects:  41% (53/127)   Compressing objects:  42% (54/127)   Compressing objects:  43% (55/127)   Compressing objects:  44% (56/127)   Compressing objects:  45% (58/127)   Compressing objects:  46% (59/127)   Compressing objects:  47% (60/127)   Compressing objects:  48% (61/127)   Compressing objects:  49% (63/127)   Compressing objects:  50% (64/127)   Compressing objects:  51% (65/127)   Compressing objects:  52% (67/127)   Compressing objects:  53% (68/127)   Compressing objects:  54% (69/127)   Compressing objects:  55% (70/127)   Compressing objects:  56% (72/127)   Compressing objects:  57% (73/127)   Compressing objects:  58% (74/127)   Compressing objects:  59% (75/127)   Compressing objects:  60% (77/127)   Compressing objects:  61% (78/127)   Compressing objects:  62% (79/127)   Compressing objects:  63% (81/127)   Compressing objects:  64% (82/127)   Compressing objects:  65% (83/127)   Compressing objects:  66% (84/127)   Compressing objects:  67% (86/127)   Compressing objects:  68% (87/127)   Compressing objects:  69% (88/127)   Compressing objects:  70% (89/127)   Compressing objects:  71% (91/127)   Compressing objects:  72% (92/127)   Compressing objects:  73% (93/127)   Compressing objects:  74% (94/127)   Compressing objects:  75% (96/127)   Compressing objects:  76% (97/127)   Compressing objects:  77% (98/127)   Compressing objects:  78% (100/127)   Compressing objects:  79% (101/127)   Compressing objects:  80% (102/127)   Compressing objects:  81% (103/127)   Compressing objects:  82% (105/127)   Compressing objects:  83% (106/127)   Compressing objects:  84% (107/127)   Compressing objects:  85% (108/127)   Compressing objects:  86% (110/127)   Compressing objects:  87% (111/127)   Compressing objects:  88% (112/127)   Compressing objects:  89% (114/127)   Compressing objects:  90% (115/127)   Compressing objects:  91% (116/127)   Compressing objects:  92% (117/127)   Compressing objects:  93% (119/127)   Compressing objects:  94% (120/127)   Compressing objects:  95% (121/127)   Compressing objects:  96% (122/127)   Compressing objects:  97% (124/127)   Compressing objects:  98% (125/127)   Compressing objects:  99% (126/127)   Compressing objects: 100% (127/127)   Compressing objects: 100% (127/127), done.
+Writing objects:   0% (1/166)   Writing objects:   1% (2/166)   Writing objects:   1% (2/166), 1.07 MiB | 503.00 KiB/s   Writing objects:   1% (2/166), 1.37 MiB | 482.00 KiB/s   Writing objects:   1% (2/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   2% (4/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   3% (5/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   4% (7/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   5% (9/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   6% (10/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   7% (12/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   8% (14/166), 1.69 MiB | 434.00 KiB/s   Writing objects:   9% (15/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  10% (17/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  11% (19/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  12% (20/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  13% (22/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  14% (24/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  15% (25/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  16% (27/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  17% (29/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  18% (30/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  19% (32/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  20% (34/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  21% (35/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  22% (37/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  23% (39/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  24% (40/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  25% (42/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  27% (45/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  28% (47/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  29% (49/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  30% (50/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  31% (52/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  32% (54/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  33% (55/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  34% (57/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  35% (59/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  36% (60/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  37% (62/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  38% (64/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  39% (65/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  40% (67/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  41% (69/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  42% (70/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  43% (72/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  44% (74/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  45% (75/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  46% (77/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  47% (79/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  48% (80/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  49% (82/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  50% (83/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  51% (85/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  52% (87/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  53% (88/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  54% (90/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  55% (92/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  56% (93/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  57% (95/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  58% (97/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  59% (98/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  60% (100/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  61% (102/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  62% (103/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  63% (105/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  64% (107/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  65% (108/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  66% (110/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  67% (112/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  68% (113/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  71% (118/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  72% (120/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  73% (122/166), 1.69 MiB | 434.00 KiB/s   Writing objects:  74% (123/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  75% (125/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  76% (127/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  77% (128/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  78% (130/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  79% (132/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  80% (133/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  81% (135/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  82% (137/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  83% (138/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  84% (140/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  86% (143/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  87% (145/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  88% (147/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  89% (148/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  90% (150/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  91% (152/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  92% (153/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  93% (155/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  94% (157/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  95% (158/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  96% (160/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  97% (162/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  98% (163/166), 2.02 MiB | 460.00 KiB/s   Writing objects:  99% (165/166), 2.32 MiB | 471.00 KiB/s   Writing objects: 100% (166/166), 2.32 MiB | 471.00 KiB/s   Writing objects: 100% (166/166), 2.38 MiB | 471.00 KiB/s, done.
+Total 166 (delta 14), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/14)   [Kremote: Resolving deltas:   7% (1/14)   [Kremote: Resolving deltas:  14% (2/14)   [Kremote: Resolving deltas:  21% (3/14)   [Kremote: Resolving deltas:  35% (5/14)   [Kremote: Resolving deltas:  42% (6/14)   [Kremote: Resolving deltas:  92% (13/14)   [Kremote: Resolving deltas: 100% (14/14)   [Kremote: Resolving deltas: 100% (14/14), done.[K
+To https://github.com/ColinFay/purrr-cookbook.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ got[K[Kit coùù[K[Kmmi[K[K[K[K[Kadd -A
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git commit ) [K[K-m "move[K[K[K[K[K[K[Ka -m "moved to /dc[Kocs"add -A[K
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git add -Apush -u origin masterremote add origin https://githubb.com/ColinFay/purrr-cookbook.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pcommit -a -m "first commit 👶"
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmoved to dosc[K[Kcs"
