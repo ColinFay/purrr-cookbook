@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>purrr cookbook</title>
+  <meta name="description" content="A {purrr} cookbookdown.">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="purrr cookbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A {purrr} cookbookdown." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="purrr cookbook" />
+  
+  <meta name="twitter:description" content="A {purrr} cookbookdown." />
+  
+
+<meta name="author" content="Colin Fay">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="stats.html">
+<link rel="next" href="tm.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A purrr cookbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> automatically create a bib database for R packages</a></li>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html"><i class="fa fa-check"></i>How to read this book</a><ul>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html#who-is-this-cookbook-for"><i class="fa fa-check"></i>Who is this cookbook for?</a></li>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html#before-reading"><i class="fa fa-check"></i>Before reading</a></li>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html#you-want-another-receipe"><i class="fa fa-check"></i>You want another receipe</a></li>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html#you-want-to-share-a-receipe"><i class="fa fa-check"></i>You want to share a receipe</a></li>
+<li class="chapter" data-level="" data-path="how-to-read-this-book.html"><a href="how-to-read-this-book.html#what-to-do-if-you-find-a-typo"><i class="fa fa-check"></i>What to do if you find a typo</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> purrr basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#map-function"><i class="fa fa-check"></i><b>2.1</b> map function</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#i-want-to"><i class="fa fa-check"></i><b>2.1.1</b> I want to…</a></li>
+<li class="chapter" data-level="2.1.2" data-path="intro.html"><a href="intro.html#heres-how-to"><i class="fa fa-check"></i><b>2.1.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="intro.html"><a href="intro.html#ok-but-why"><i class="fa fa-check"></i><b>2.1.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="2.1.4" data-path="intro.html"><a href="intro.html#see-also"><i class="fa fa-check"></i><b>2.1.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#map_-functions"><i class="fa fa-check"></i><b>2.2</b> map_* functions</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#i-want-to-1"><i class="fa fa-check"></i><b>2.2.1</b> I want to…</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#heres-how-to-1"><i class="fa fa-check"></i><b>2.2.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#ok-but-why-1"><i class="fa fa-check"></i><b>2.2.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="2.2.4" data-path="intro.html"><a href="intro.html#see-also-1"><i class="fa fa-check"></i><b>2.2.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#mappers"><i class="fa fa-check"></i><b>2.3</b> Mappers</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#i-want-to-2"><i class="fa fa-check"></i><b>2.3.1</b> I want to…</a></li>
+<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#heres-how-to-2"><i class="fa fa-check"></i><b>2.3.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="2.3.3" data-path="intro.html"><a href="intro.html#ok-but-why-2"><i class="fa fa-check"></i><b>2.3.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="2.3.4" data-path="intro.html"><a href="intro.html#see-also-2"><i class="fa fa-check"></i><b>2.3.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#map-on-2-elements"><i class="fa fa-check"></i><b>2.4</b> map on 2 elements</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#i-want-to-3"><i class="fa fa-check"></i><b>2.4.1</b> I want to…</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#heres-how-to-3"><i class="fa fa-check"></i><b>2.4.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="2.4.3" data-path="intro.html"><a href="intro.html#ok-but-why-3"><i class="fa fa-check"></i><b>2.4.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="2.4.4" data-path="intro.html"><a href="intro.html#see-also-3"><i class="fa fa-check"></i><b>2.4.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#map-on-more-elements"><i class="fa fa-check"></i><b>2.5</b> map on more elements</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#i-want-to-4"><i class="fa fa-check"></i><b>2.5.1</b> I want to…</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#heres-how-to-4"><i class="fa fa-check"></i><b>2.5.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#ok-but-why-4"><i class="fa fa-check"></i><b>2.5.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#see-also-4"><i class="fa fa-check"></i><b>2.5.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#iteration-for-side-effect"><i class="fa fa-check"></i><b>2.6</b> Iteration for side effect</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#i-want-to-5"><i class="fa fa-check"></i><b>2.6.1</b> I want to…</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#heres-how-to-5"><i class="fa fa-check"></i><b>2.6.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="2.6.3" data-path="intro.html"><a href="intro.html#ok-but-why-5"><i class="fa fa-check"></i><b>2.6.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="2.6.4" data-path="intro.html"><a href="intro.html#see-also-5"><i class="fa fa-check"></i><b>2.6.4</b> See also</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stats.html"><a href="stats.html"><i class="fa fa-check"></i><b>3</b> Statistics</a><ul>
+<li class="chapter" data-level="3.1" data-path="stats.html"><a href="stats.html#compute-the-mean"><i class="fa fa-check"></i><b>3.1</b> Compute the mean</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="stats.html"><a href="stats.html#i-want-to-6"><i class="fa fa-check"></i><b>3.1.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.1.2" data-path="stats.html"><a href="stats.html#heres-how-to-6"><i class="fa fa-check"></i><b>3.1.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="stats.html"><a href="stats.html#ok-but-why-6"><i class="fa fa-check"></i><b>3.1.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.1.4" data-path="stats.html"><a href="stats.html#see-also-6"><i class="fa fa-check"></i><b>3.1.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="stats.html"><a href="stats.html#running-a-shapiro-test"><i class="fa fa-check"></i><b>3.2</b> Running a shapiro test</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="stats.html"><a href="stats.html#i-want-to-7"><i class="fa fa-check"></i><b>3.2.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.2.2" data-path="stats.html"><a href="stats.html#heres-how-to-7"><i class="fa fa-check"></i><b>3.2.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.2.3" data-path="stats.html"><a href="stats.html#ok-but-why-7"><i class="fa fa-check"></i><b>3.2.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.2.4" data-path="stats.html"><a href="stats.html#see-also-7"><i class="fa fa-check"></i><b>3.2.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="stats.html"><a href="stats.html#test-only-numeric-columns"><i class="fa fa-check"></i><b>3.3</b> Test only numeric columns</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="stats.html"><a href="stats.html#i-want-to-8"><i class="fa fa-check"></i><b>3.3.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.3.2" data-path="stats.html"><a href="stats.html#heres-how-to-8"><i class="fa fa-check"></i><b>3.3.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.3.3" data-path="stats.html"><a href="stats.html#ok-but-why-8"><i class="fa fa-check"></i><b>3.3.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.3.4" data-path="stats.html"><a href="stats.html#see-also-8"><i class="fa fa-check"></i><b>3.3.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="stats.html"><a href="stats.html#cor.test"><i class="fa fa-check"></i><b>3.4</b> cor.test</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="stats.html"><a href="stats.html#i-want-to-9"><i class="fa fa-check"></i><b>3.4.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.4.2" data-path="stats.html"><a href="stats.html#heres-how-to-9"><i class="fa fa-check"></i><b>3.4.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.4.3" data-path="stats.html"><a href="stats.html#ok-but-why-9"><i class="fa fa-check"></i><b>3.4.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.4.4" data-path="stats.html"><a href="stats.html#see-also-9"><i class="fa fa-check"></i><b>3.4.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="stats.html"><a href="stats.html#linear-regression"><i class="fa fa-check"></i><b>3.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="stats.html"><a href="stats.html#i-want-to-10"><i class="fa fa-check"></i><b>3.5.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.5.2" data-path="stats.html"><a href="stats.html#heres-how-to-10"><i class="fa fa-check"></i><b>3.5.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.5.3" data-path="stats.html"><a href="stats.html#ok-but-why-10"><i class="fa fa-check"></i><b>3.5.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.5.4" data-path="stats.html"><a href="stats.html#see-also-10"><i class="fa fa-check"></i><b>3.5.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="stats.html"><a href="stats.html#significant-r.squared"><i class="fa fa-check"></i><b>3.6</b> significant r.squared</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="stats.html"><a href="stats.html#i-want-to-11"><i class="fa fa-check"></i><b>3.6.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.6.2" data-path="stats.html"><a href="stats.html#heres-how-to-11"><i class="fa fa-check"></i><b>3.6.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.6.3" data-path="stats.html"><a href="stats.html#ok-but-why-11"><i class="fa fa-check"></i><b>3.6.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.6.4" data-path="stats.html"><a href="stats.html#see-also-11"><i class="fa fa-check"></i><b>3.6.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="stats.html"><a href="stats.html#test-and-validation"><i class="fa fa-check"></i><b>3.7</b> test and validation</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="stats.html"><a href="stats.html#i-want-to-12"><i class="fa fa-check"></i><b>3.7.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.7.2" data-path="stats.html"><a href="stats.html#heres-how-to-12"><i class="fa fa-check"></i><b>3.7.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.7.3" data-path="stats.html"><a href="stats.html#ok-but-why-12"><i class="fa fa-check"></i><b>3.7.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.7.4" data-path="stats.html"><a href="stats.html#see-also-12"><i class="fa fa-check"></i><b>3.7.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="stats.html"><a href="stats.html#rpart"><i class="fa fa-check"></i><b>3.8</b> rpart</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="stats.html"><a href="stats.html#i-want-to-13"><i class="fa fa-check"></i><b>3.8.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.8.2" data-path="stats.html"><a href="stats.html#heres-how-to-13"><i class="fa fa-check"></i><b>3.8.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.8.3" data-path="stats.html"><a href="stats.html#ok-but-why-13"><i class="fa fa-check"></i><b>3.8.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.8.4" data-path="stats.html"><a href="stats.html#see-also-13"><i class="fa fa-check"></i><b>3.8.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="stats.html"><a href="stats.html#make-prediction"><i class="fa fa-check"></i><b>3.9</b> Make prediction</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="stats.html"><a href="stats.html#i-want-to-14"><i class="fa fa-check"></i><b>3.9.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.9.2" data-path="stats.html"><a href="stats.html#heres-how-to-14"><i class="fa fa-check"></i><b>3.9.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.9.3" data-path="stats.html"><a href="stats.html#ok-but-why-14"><i class="fa fa-check"></i><b>3.9.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.9.4" data-path="stats.html"><a href="stats.html#see-also-14"><i class="fa fa-check"></i><b>3.9.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="stats.html"><a href="stats.html#confusion-matrix"><i class="fa fa-check"></i><b>3.10</b> Confusion matrix</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="stats.html"><a href="stats.html#i-want-to-15"><i class="fa fa-check"></i><b>3.10.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.10.2" data-path="stats.html"><a href="stats.html#heres-how-to-15"><i class="fa fa-check"></i><b>3.10.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.10.3" data-path="stats.html"><a href="stats.html#ok-but-why-15"><i class="fa fa-check"></i><b>3.10.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.10.4" data-path="stats.html"><a href="stats.html#see-also-15"><i class="fa fa-check"></i><b>3.10.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="stats.html"><a href="stats.html#sensitivity-and-specificity"><i class="fa fa-check"></i><b>3.11</b> Sensitivity and Specificity</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="stats.html"><a href="stats.html#i-want-to-16"><i class="fa fa-check"></i><b>3.11.1</b> I want to…</a></li>
+<li class="chapter" data-level="3.11.2" data-path="stats.html"><a href="stats.html#heres-how-to-16"><i class="fa fa-check"></i><b>3.11.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="3.11.3" data-path="stats.html"><a href="stats.html#ok-but-why-16"><i class="fa fa-check"></i><b>3.11.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="3.11.4" data-path="stats.html"><a href="stats.html#see-also-16"><i class="fa fa-check"></i><b>3.11.4</b> See also</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="webmining.html"><a href="webmining.html"><i class="fa fa-check"></i><b>4</b> Webmining</a><ul>
+<li class="chapter" data-level="4.1" data-path="webmining.html"><a href="webmining.html#status-code"><i class="fa fa-check"></i><b>4.1</b> Status code</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="webmining.html"><a href="webmining.html#i-want-to-17"><i class="fa fa-check"></i><b>4.1.1</b> I want to…</a></li>
+<li class="chapter" data-level="4.1.2" data-path="webmining.html"><a href="webmining.html#heres-how-to-17"><i class="fa fa-check"></i><b>4.1.2</b> Here’s how to</a></li>
+<li class="chapter" data-level="4.1.3" data-path="webmining.html"><a href="webmining.html#ok-but-why-17"><i class="fa fa-check"></i><b>4.1.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="4.1.4" data-path="webmining.html"><a href="webmining.html#see-also-17"><i class="fa fa-check"></i><b>4.1.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="webmining.html"><a href="webmining.html#check-status-code"><i class="fa fa-check"></i><b>4.2</b> Check status code</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="webmining.html"><a href="webmining.html#i-want-to-18"><i class="fa fa-check"></i><b>4.2.1</b> I want to…</a></li>
+<li class="chapter" data-level="4.2.2" data-path="webmining.html"><a href="webmining.html#heres-how-to-18"><i class="fa fa-check"></i><b>4.2.2</b> Here’s how to</a></li>
+<li class="chapter" data-level="4.2.3" data-path="webmining.html"><a href="webmining.html#ok-but-why-18"><i class="fa fa-check"></i><b>4.2.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="4.2.4" data-path="webmining.html"><a href="webmining.html#see-also-18"><i class="fa fa-check"></i><b>4.2.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="webmining.html"><a href="webmining.html#scrape-a-list-of-urls-which-may-fail"><i class="fa fa-check"></i><b>4.3</b> Scrape a list of urls which may fail</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="webmining.html"><a href="webmining.html#i-want-to-19"><i class="fa fa-check"></i><b>4.3.1</b> I want to…</a></li>
+<li class="chapter" data-level="4.3.2" data-path="webmining.html"><a href="webmining.html#heres-how-to-19"><i class="fa fa-check"></i><b>4.3.2</b> Here’s how to</a></li>
+<li class="chapter" data-level="4.3.3" data-path="webmining.html"><a href="webmining.html#ok-but-why-19"><i class="fa fa-check"></i><b>4.3.3</b> Ok, but why</a></li>
+<li class="chapter" data-level="4.3.4" data-path="webmining.html"><a href="webmining.html#see-also-19"><i class="fa fa-check"></i><b>4.3.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="webmining.html"><a href="webmining.html#getting-h2"><i class="fa fa-check"></i><b>4.4</b> Getting h2</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="webmining.html"><a href="webmining.html#i-want-to-20"><i class="fa fa-check"></i><b>4.4.1</b> I want to…</a></li>
+<li class="chapter" data-level="4.4.2" data-path="webmining.html"><a href="webmining.html#heres-how-to-20"><i class="fa fa-check"></i><b>4.4.2</b> Here’s how to</a></li>
+<li class="chapter" data-level="4.4.3" data-path="webmining.html"><a href="webmining.html#ok-but-why-20"><i class="fa fa-check"></i><b>4.4.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="4.4.4" data-path="webmining.html"><a href="webmining.html#see-also-20"><i class="fa fa-check"></i><b>4.4.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="webmining.html"><a href="webmining.html#json-with-many-levels"><i class="fa fa-check"></i><b>4.5</b> JSON with many levels</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="webmining.html"><a href="webmining.html#i-want-to-21"><i class="fa fa-check"></i><b>4.5.1</b> I want to…</a></li>
+<li class="chapter" data-level="4.5.2" data-path="webmining.html"><a href="webmining.html#heres-how-to-21"><i class="fa fa-check"></i><b>4.5.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="4.5.3" data-path="webmining.html"><a href="webmining.html#ok-but-why-21"><i class="fa fa-check"></i><b>4.5.3</b> Ok, but why</a></li>
+<li class="chapter" data-level="4.5.4" data-path="webmining.html"><a href="webmining.html#see-also-21"><i class="fa fa-check"></i><b>4.5.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="webmining.html"><a href="webmining.html#several-api-call"><i class="fa fa-check"></i><b>4.6</b> Several API call</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="webmining.html"><a href="webmining.html#i-want-to-22"><i class="fa fa-check"></i><b>4.6.1</b> I want to…</a></li>
+<li class="chapter" data-level="4.6.2" data-path="webmining.html"><a href="webmining.html#heres-how-to-22"><i class="fa fa-check"></i><b>4.6.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="4.6.3" data-path="webmining.html"><a href="webmining.html#ok-but-why-22"><i class="fa fa-check"></i><b>4.6.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="4.6.4" data-path="webmining.html"><a href="webmining.html#see-also-22"><i class="fa fa-check"></i><b>4.6.4</b> See also</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tm.html"><a href="tm.html"><i class="fa fa-check"></i><b>5</b> Text Mining</a><ul>
+<li class="chapter" data-level="5.1" data-path="tm.html"><a href="tm.html#build-regex"><i class="fa fa-check"></i><b>5.1</b> Build regex</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="tm.html"><a href="tm.html#i-want-to-23"><i class="fa fa-check"></i><b>5.1.1</b> I want to…</a></li>
+<li class="chapter" data-level="5.1.2" data-path="tm.html"><a href="tm.html#heres-how-to-23"><i class="fa fa-check"></i><b>5.1.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="tm.html"><a href="tm.html#ok-but-why-23"><i class="fa fa-check"></i><b>5.1.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="5.1.4" data-path="tm.html"><a href="tm.html#see-also-23"><i class="fa fa-check"></i><b>5.1.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="tm.html"><a href="tm.html#regex-extraction"><i class="fa fa-check"></i><b>5.2</b> Regex extraction</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="tm.html"><a href="tm.html#i-want-to-24"><i class="fa fa-check"></i><b>5.2.1</b> I want to…</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tm.html"><a href="tm.html#heres-how-to-24"><i class="fa fa-check"></i><b>5.2.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="5.2.3" data-path="tm.html"><a href="tm.html#ok-but-why-24"><i class="fa fa-check"></i><b>5.2.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="5.2.4" data-path="tm.html"><a href="tm.html#see-also-24"><i class="fa fa-check"></i><b>5.2.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tm.html"><a href="tm.html#collapse-a-list-of-words"><i class="fa fa-check"></i><b>5.3</b> Collapse a list of words</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tm.html"><a href="tm.html#i-want-to-25"><i class="fa fa-check"></i><b>5.3.1</b> I want to…</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tm.html"><a href="tm.html#heres-how-to-25"><i class="fa fa-check"></i><b>5.3.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tm.html"><a href="tm.html#ok-but-why-25"><i class="fa fa-check"></i><b>5.3.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="5.3.4" data-path="tm.html"><a href="tm.html#see-also-25"><i class="fa fa-check"></i><b>5.3.4</b> See also</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>6</b> Code Optimisation</a><ul>
+<li class="chapter" data-level="6.1" data-path="optim.html"><a href="optim.html#compose-functions"><i class="fa fa-check"></i><b>6.1</b> Compose functions</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="optim.html"><a href="optim.html#i-want-to-26"><i class="fa fa-check"></i><b>6.1.1</b> I want to…</a></li>
+<li class="chapter" data-level="6.1.2" data-path="optim.html"><a href="optim.html#heres-how-to-26"><i class="fa fa-check"></i><b>6.1.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="optim.html"><a href="optim.html#ok-but-why-26"><i class="fa fa-check"></i><b>6.1.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="6.1.4" data-path="optim.html"><a href="optim.html#see-also-26"><i class="fa fa-check"></i><b>6.1.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="optim.html"><a href="optim.html#prefilled-functions"><i class="fa fa-check"></i><b>6.2</b> Prefilled functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="optim.html"><a href="optim.html#i-want-to-27"><i class="fa fa-check"></i><b>6.2.1</b> I want to…</a></li>
+<li class="chapter" data-level="6.2.2" data-path="optim.html"><a href="optim.html#heres-how-to-27"><i class="fa fa-check"></i><b>6.2.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="6.2.3" data-path="optim.html"><a href="optim.html#ok-but-why-27"><i class="fa fa-check"></i><b>6.2.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="6.2.4" data-path="optim.html"><a href="optim.html#see-also-27"><i class="fa fa-check"></i><b>6.2.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="optim.html"><a href="optim.html#negate-a-function"><i class="fa fa-check"></i><b>6.3</b> Negate a function</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="optim.html"><a href="optim.html#i-want-to-28"><i class="fa fa-check"></i><b>6.3.1</b> I want to…</a></li>
+<li class="chapter" data-level="6.3.2" data-path="optim.html"><a href="optim.html#heres-how-to-28"><i class="fa fa-check"></i><b>6.3.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="6.3.3" data-path="optim.html"><a href="optim.html#ok-but-why-28"><i class="fa fa-check"></i><b>6.3.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="6.3.4" data-path="optim.html"><a href="optim.html#see-also-28"><i class="fa fa-check"></i><b>6.3.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="optim.html"><a href="optim.html#negate-a-function-1"><i class="fa fa-check"></i><b>6.4</b> Negate a function</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="optim.html"><a href="optim.html#i-want-to-29"><i class="fa fa-check"></i><b>6.4.1</b> I want to…</a></li>
+<li class="chapter" data-level="6.4.2" data-path="optim.html"><a href="optim.html#heres-how-to-29"><i class="fa fa-check"></i><b>6.4.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="6.4.3" data-path="optim.html"><a href="optim.html#ok-but-why-29"><i class="fa fa-check"></i><b>6.4.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="6.4.4" data-path="optim.html"><a href="optim.html#see-also-29"><i class="fa fa-check"></i><b>6.4.4</b> See also</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>7</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="7.1" data-path="wrangling.html"><a href="wrangling.html#read-csvs"><i class="fa fa-check"></i><b>7.1</b> Read csvs</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="wrangling.html"><a href="wrangling.html#i-want-to-30"><i class="fa fa-check"></i><b>7.1.1</b> I want to…</a></li>
+<li class="chapter" data-level="7.1.2" data-path="wrangling.html"><a href="wrangling.html#heres-how-to-30"><i class="fa fa-check"></i><b>7.1.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="wrangling.html"><a href="wrangling.html#ok-but-why-30"><i class="fa fa-check"></i><b>7.1.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="7.1.4" data-path="wrangling.html"><a href="wrangling.html#see-also-30"><i class="fa fa-check"></i><b>7.1.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="wrangling.html"><a href="wrangling.html#remove-the-na"><i class="fa fa-check"></i><b>7.2</b> Remove the NA</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="wrangling.html"><a href="wrangling.html#i-want-to-31"><i class="fa fa-check"></i><b>7.2.1</b> I want to…</a></li>
+<li class="chapter" data-level="7.2.2" data-path="wrangling.html"><a href="wrangling.html#heres-how-to-31"><i class="fa fa-check"></i><b>7.2.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="7.2.3" data-path="wrangling.html"><a href="wrangling.html#ok-but-why-31"><i class="fa fa-check"></i><b>7.2.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="7.2.4" data-path="wrangling.html"><a href="wrangling.html#see-also-31"><i class="fa fa-check"></i><b>7.2.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="wrangling.html"><a href="wrangling.html#list-append"><i class="fa fa-check"></i><b>7.3</b> List append</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="wrangling.html"><a href="wrangling.html#i-want-to-32"><i class="fa fa-check"></i><b>7.3.1</b> I want to…</a></li>
+<li class="chapter" data-level="7.3.2" data-path="wrangling.html"><a href="wrangling.html#heres-how-to-32"><i class="fa fa-check"></i><b>7.3.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="7.3.3" data-path="wrangling.html"><a href="wrangling.html#ok-but-why-32"><i class="fa fa-check"></i><b>7.3.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="7.3.4" data-path="wrangling.html"><a href="wrangling.html#see-also-32"><i class="fa fa-check"></i><b>7.3.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="wrangling.html"><a href="wrangling.html#position-matching"><i class="fa fa-check"></i><b>7.4</b> Position matching</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="wrangling.html"><a href="wrangling.html#i-want-to-33"><i class="fa fa-check"></i><b>7.4.1</b> I want to…</a></li>
+<li class="chapter" data-level="7.4.2" data-path="wrangling.html"><a href="wrangling.html#heres-how-to-33"><i class="fa fa-check"></i><b>7.4.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="7.4.3" data-path="wrangling.html"><a href="wrangling.html#ok-but-why-33"><i class="fa fa-check"></i><b>7.4.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="7.4.4" data-path="wrangling.html"><a href="wrangling.html#see-also-33"><i class="fa fa-check"></i><b>7.4.4</b> See also</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="wrangling.html"><a href="wrangling.html#cut-a-list"><i class="fa fa-check"></i><b>7.5</b> Cut a list</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="wrangling.html"><a href="wrangling.html#i-want-to-34"><i class="fa fa-check"></i><b>7.5.1</b> I want to…</a></li>
+<li class="chapter" data-level="7.5.2" data-path="wrangling.html"><a href="wrangling.html#heres-how-to-34"><i class="fa fa-check"></i><b>7.5.2</b> Here’s how to:</a></li>
+<li class="chapter" data-level="7.5.3" data-path="wrangling.html"><a href="wrangling.html#ok-but-why-34"><i class="fa fa-check"></i><b>7.5.3</b> Ok, but why?</a></li>
+<li class="chapter" data-level="7.5.4" data-path="wrangling.html"><a href="wrangling.html#see-also-34"><i class="fa fa-check"></i><b>7.5.4</b> See also</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://twitter.com/_ColinFay" target="blank">Written by Colin Fay</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Hosted on Github</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">purrr cookbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="webmining" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Webmining</h1>
+<div id="status-code" class="section level2">
+<h2><span class="header-section-number">4.1</span> Status code</h2>
+<div id="i-want-to-17" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> I want to…</h3>
+<p>Create a status code checker.</p>
+</div>
+<div id="heres-how-to-17" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Here’s how to</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(httr)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">get_status &lt;-<span class="st"> </span><span class="kw">compose</span>(status_code, GET)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">get_status</span>(<span class="st">&quot;colinfay.me&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] 200</code></pre>
+</div>
+<div id="ok-but-why-17" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Ok, but why?</h3>
+<p><code>compose(y, x)</code> composes a function that will do <code>y(x())</code>. So here, <code>get_status(&quot;url&quot;)</code> will do <code>status_code(GET(&quot;url&quot;))</code>.</p>
+</div>
+<div id="see-also-17" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> See also</h3>
+<hr />
+</div>
+</div>
+<div id="check-status-code" class="section level2">
+<h2><span class="header-section-number">4.2</span> Check status code</h2>
+<div id="i-want-to-18" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> I want to…</h3>
+<p>Check for http status code for a list of pages.</p>
+</div>
+<div id="heres-how-to-18" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Here’s how to</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">urls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;http://colinfay.me&quot;</span>, <span class="st">&quot;http://thinkr.fr&quot;</span>, <span class="st">&quot;reallynotanadress&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">get_status &lt;-<span class="st"> </span><span class="kw">compose</span>(status_code, GET)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">map</span>(urls, get_status) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">every</span>(<span class="op">~</span><span class="st"> </span>.x <span class="op">==</span><span class="st"> </span><span class="dv">200</span>)</a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="ok-but-why-18" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Ok, but why?</h3>
+<p>200 is a status code that indicates that the connexion went smoothly. The <code>every</code> function here checks if all the status code we just <code>GET</code> are equal to 200.</p>
+</div>
+<div id="see-also-18" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> See also</h3>
+</div>
+</div>
+<div id="scrape-a-list-of-urls-which-may-fail" class="section level2">
+<h2><span class="header-section-number">4.3</span> Scrape a list of urls which may fail</h2>
+<div id="i-want-to-19" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> I want to…</h3>
+<p>Launch a <code>read_html</code> function on a list of webpages, and some may throw an error.</p>
+<p>The difference with the function we saw previously ?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># http status code error </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">GET</span>(<span class="st">&quot;notexistingurl&quot;</span>)</a></code></pre></div>
+<pre><code>## Response [http://notexistingurl/]
+##   Date: 2018-01-19 21:33
+##   Status: 403
+##   Content-Type: text/html; charset=iso-8859-1
+##   Size: 202 B
+## &lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;
+## &lt;html&gt;&lt;head&gt;
+## &lt;title&gt;403 Forbidden&lt;/title&gt;
+## &lt;/head&gt;&lt;body&gt;
+## &lt;h1&gt;Forbidden&lt;/h1&gt;
+## &lt;p&gt;You don&#39;t have permission to access /
+## on this server.&lt;/p&gt;
+## &lt;/body&gt;&lt;/html&gt;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Error because host doesn&#39;t exist</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">GET</span>(<span class="st">&quot;notexistingurl.org&quot;</span>)</a></code></pre></div>
+<pre><code>## Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: notexistingurl.org</code></pre>
+</div>
+<div id="heres-how-to-19" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Here’s how to</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(rvest)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">urls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;http://colinfay.me&quot;</span>, <span class="st">&quot;http://thinkr.fr&quot;</span>, <span class="st">&quot;reallynotanadress&quot;</span>)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">possible_read &lt;-<span class="st"> </span><span class="kw">possibly</span>(read_html, <span class="dt">otherwise =</span> <span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">map</span>(urls, possible_read) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">set_names</span>(urls) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">compact</span>() </a></code></pre></div>
+<pre><code>## $`http://colinfay.me`
+## {xml_document}
+## &lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt;
+## [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset= ...
+## [2] &lt;body class=&quot;layout--home&quot;&gt;\n\n    &lt;!--[if lt IE 9]&gt;\n&lt;div class=&quot;no ...
+## 
+## $`http://thinkr.fr`
+## {xml_document}
+## &lt;html class=&quot;no-js&quot; lang=&quot;fr-FR&quot;&gt;
+## [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset= ...
+## [2] &lt;body class=&quot;home page-template-default page page-id-35625 do-etfw f ...</code></pre>
+</div>
+<div id="ok-but-why-19" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Ok, but why</h3>
+<p><code>possibly</code> turns a function into another function that returns what is defined in otherwise in case of failure. Here, we chose to return NULL.</p>
+<p><code>compact()</code> removes all the elements from a list which are NULL.</p>
+</div>
+<div id="see-also-19" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> See also</h3>
+<ul>
+<li><a href="http://r4ds.had.co.nz/iteration.html#dealing-with-failure">R for Data Science - 21.6 Dealing with failure</a></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="getting-h2" class="section level2">
+<h2><span class="header-section-number">4.4</span> Getting h2</h2>
+<div id="i-want-to-20" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> I want to…</h3>
+<p>Get the h2s from a list of urls.</p>
+</div>
+<div id="heres-how-to-20" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Here’s how to</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">get_h2 &lt;-<span class="st"> </span><span class="kw">compose</span>(html_text,</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">                  <span class="kw">as_mapper</span>(<span class="op">~</span><span class="st"> </span><span class="kw">html_nodes</span>(.x, <span class="st">&quot;h2&quot;</span>)), </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">                  read_html)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">urls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;http://colinfay.me&quot;</span>, <span class="st">&quot;http://thinkr.fr&quot;</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">map</span>(urls, get_h2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">set_names</span>(urls)</a></code></pre></div>
+<pre><code>## $`http://colinfay.me`
+## [1] &quot;On the blog : &quot;                                                                                     
+## [2] &quot;\n      \n        Combining the new {rtweet} and {tidytext}\n\n      \n    &quot;                        
+## [3] &quot;\n      \n        [How to] Include a dancing banana in your R package documentation\n\n      \n    &quot;
+## [4] &quot;\n      \n        Some random R benchmarks\n\n      \n    &quot;                                         
+## [5] &quot;\n      \n        {attempt} is now on CRAN\n\n      \n    &quot;                                         
+## [6] &quot;\n      \n        A Crazy Little Thing Called {purrr} - Part 6 : doing statistics\n\n      \n    &quot;  
+## 
+## $`http://thinkr.fr`
+##  [1] &quot;Conseil, développement et formation au logiciel R&quot;                              
+##  [2] &quot;Formez-vous au logiciel R !&quot;                                                    
+##  [3] &quot;\r\n\t\tLe logo ThinkR créé avec la librairie {sf}\r\n\t&quot;                       
+##  [4] &quot;\r\n\t\tR de jeu #2 : Happy new yeaR\r\n\t&quot;                                     
+##  [5] &quot;\r\n\t\tDe retour de Budapest\r\n\t&quot;                                            
+##  [6] &quot;\r\n\t\tR de jeu #1 : API, dataviz, et statistiques\r\n\t&quot;                      
+##  [7] &quot;\r\n\t\tforcats, forcats, vous avez dit forcats ?\r\n\t&quot;                        
+##  [8] &quot;\r\n\t\tText mining et topic modeling avec R\r\n\t&quot;                             
+##  [9] &quot;\r\n\t\tÀ la découverte de {rvest}\r\n\t&quot;                                       
+## [10] &quot;\r\n\t\tPremiers pas en Machine Learning avec R. Volume 4 : random forest\r\n\t&quot;
+## [11] &quot;\r\n\t\tAu menu du jour : {R6} — Partie 2\r\n\t&quot;</code></pre>
+</div>
+<div id="ok-but-why-20" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Ok, but why?</h3>
+<p>We are composing an h2 extractor by combining <code>read_html</code>, <code>html_nodes</code> and <code>html_text</code>. We then map this extractor to a list of urls, before setting the names of the results with the <code>set_names</code> function.</p>
+</div>
+<div id="see-also-20" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> See also</h3>
+</div>
+</div>
+<div id="json-with-many-levels" class="section level2">
+<h2><span class="header-section-number">4.5</span> JSON with many levels</h2>
+<div id="i-want-to-21" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> I want to…</h3>
+<p>Extract all the test1 results.</p>
+</div>
+<div id="heres-how-to-21" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Here’s how to:</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">map</span>(json_file, <span class="op">~</span><span class="st"> </span>purrr<span class="op">::</span><span class="kw">pluck</span>(.x, <span class="st">&quot;Res&quot;</span>, <span class="st">&quot;test1&quot;</span>))</a></code></pre></div>
+<pre><code>## $obs1
+## [1] &quot;17&quot;
+## 
+## $obs2
+## [1] &quot;12&quot;</code></pre>
+</div>
+<div id="ok-but-why-21" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Ok, but why</h3>
+<p>What we called before is a shortcut for <code>map(file, ~ pluck(.x, &quot;id&quot;)</code>. That shortcut works on the first level of the list. If you need to go deeper, you need to explicitely specify the <code>pluck</code> call.</p>
+<p>Be careful, there is also a <code>pluck</code> in {rvest} that doesn’t behave exactly as the <code>pluck</code> from {purrr}.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">map</span>(json_file, <span class="op">~</span><span class="st"> </span>rvest<span class="op">::</span><span class="kw">pluck</span>(.x, <span class="st">&quot;Res&quot;</span>, <span class="st">&quot;test1&quot;</span>))</a></code></pre></div>
+<pre><code>## Error in FUN(X[[i]], ...): indice hors limites</code></pre>
+</div>
+<div id="see-also-21" class="section level3">
+<h3><span class="header-section-number">4.5.4</span> See also</h3>
+<hr />
+</div>
+</div>
+<div id="several-api-call" class="section level2">
+<h2><span class="header-section-number">4.6</span> Several API call</h2>
+<div id="i-want-to-22" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> I want to…</h3>
+<p>Make a series of API calls</p>
+</div>
+<div id="heres-how-to-22" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> Here’s how to:</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">library</span>(attempt)</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw">library</span>(curl)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">caller &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="co"># verify internet connexion</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">  <span class="kw">stop_if_not</span>(<span class="kw">has_internet</span>(), <span class="dt">msg =</span> <span class="st">&quot;You should have internet to do that&quot;</span>)</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">  res &lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://geo.api.gouv.fr/communes&quot;</span>, <span class="dt">query =</span> <span class="kw">list</span>(<span class="dt">nom =</span> x)) </a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">  res<span class="op">$</span>content <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rawToChar</span>() <span class="op">%&gt;%</span><span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">fromJSON</span>(<span class="dt">simplifyDataFrame =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rennes&quot;</span>,<span class="st">&quot;Vannes&quot;</span>,<span class="st">&quot;Brest&quot;</span>)</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="kw">map_df</span>(city, caller)</a></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">nom</th>
+<th align="left">code</th>
+<th align="left">codeDepartement</th>
+<th align="left">codeRegion</th>
+<th align="left">codesPostaux</th>
+<th align="right">population</th>
+<th align="right">_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rennes</td>
+<td align="left">35238</td>
+<td align="left">35</td>
+<td align="left">53</td>
+<td align="left">35000, 35200, 35700</td>
+<td align="right">211373</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Rennes-le-Château</td>
+<td align="left">11309</td>
+<td align="left">11</td>
+<td align="left">76</td>
+<td align="left">11190</td>
+<td align="right">58</td>
+<td align="right">0.7761594</td>
+</tr>
+<tr class="odd">
+<td align="left">Rennes-les-Bains</td>
+<td align="left">11310</td>
+<td align="left">11</td>
+<td align="left">76</td>
+<td align="left">11190</td>
+<td align="right">258</td>
+<td align="right">0.7583585</td>
+</tr>
+<tr class="even">
+<td align="left">Rennes-sur-Loue</td>
+<td align="left">25488</td>
+<td align="left">25</td>
+<td align="left">27</td>
+<td align="left">25440</td>
+<td align="right">88</td>
+<td align="right">0.6743168</td>
+</tr>
+<tr class="odd">
+<td align="left">Rennes-en-Grenouilles</td>
+<td align="left">53189</td>
+<td align="left">53</td>
+<td align="left">52</td>
+<td align="left">53110</td>
+<td align="right">117</td>
+<td align="right">0.6239261</td>
+</tr>
+<tr class="even">
+<td align="left">Vannes</td>
+<td align="left">56260</td>
+<td align="left">56</td>
+<td align="left">53</td>
+<td align="left">56000</td>
+<td align="right">53032</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Vannes-le-Châtel</td>
+<td align="left">54548</td>
+<td align="left">54</td>
+<td align="left">44</td>
+<td align="left">54112</td>
+<td align="right">579</td>
+<td align="right">0.7510264</td>
+</tr>
+<tr class="even">
+<td align="left">Pouy-sur-Vannes</td>
+<td align="left">10301</td>
+<td align="left">10</td>
+<td align="left">44</td>
+<td align="left">10290</td>
+<td align="right">145</td>
+<td align="right">0.6873107</td>
+</tr>
+<tr class="odd">
+<td align="left">Saulxures-lès-Vannes</td>
+<td align="left">54496</td>
+<td align="left">54</td>
+<td align="left">44</td>
+<td align="left">54170</td>
+<td align="right">363</td>
+<td align="right">0.6820142</td>
+</tr>
+<tr class="even">
+<td align="left">Vannes-sur-Cosson</td>
+<td align="left">45331</td>
+<td align="left">45</td>
+<td align="left">24</td>
+<td align="left">45510</td>
+<td align="right">589</td>
+<td align="right">0.6652302</td>
+</tr>
+<tr class="odd">
+<td align="left">Brest</td>
+<td align="left">29019</td>
+<td align="left">29</td>
+<td align="left">53</td>
+<td align="left">29200</td>
+<td align="right">139386</td>
+<td align="right">0.7182376</td>
+</tr>
+<tr class="even">
+<td align="left">Brestot</td>
+<td align="left">27110</td>
+<td align="left">27</td>
+<td align="left">28</td>
+<td align="left">27350</td>
+<td align="right">518</td>
+<td align="right">0.6957980</td>
+</tr>
+<tr class="odd">
+<td align="left">Esboz-Brest</td>
+<td align="left">70216</td>
+<td align="left">70</td>
+<td align="left">27</td>
+<td align="left">70300</td>
+<td align="right">485</td>
+<td align="right">0.4918154</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="ok-but-why-22" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> Ok, but why?</h3>
+<p>Here, we are calling an API which returns a JSON object that can be easily turned into a df with {jsonlite}. So we choose to use <code>map_df</code> to return a simple data.frame of the three results.</p>
+</div>
+<div id="see-also-22" class="section level3">
+<h3><span class="header-section-number">4.6.4</span> See also</h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="stats.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

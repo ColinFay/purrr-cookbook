@@ -1,0 +1,3 @@
+A series of {purrr} common receipes as a cookbookdown.
+
+Losely based on a series of [blogposts](http://colinfay.me/tags/purrr/), and this [Twitter moment](https://twitter.com/i/moments/950031718521671680).

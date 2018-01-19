@@ -1,0 +1,56 @@
+# How to read this book {-}
+
+This book is divided in `r length(list.files(pattern = "Rmd")) - 4` chapters. 
+
+Each chapter contains a random number of receipes, more or less from the easiest to more complex examples.
+
+- "Statistics" contains a list of useful common stat tricks with {purrr}
+- "Webmining" gives you elements to mine info from the web (HTML / JSON)
+- "Text Wrangling" covers some text mining methods
+- "Code optimisation" is a chapter about using {purrr} to write better code
+- "Data Wrangling" is a list of receipes I couldn't fit anywhere else ¯\\_(ツ)_/¯
+
+Based on other programming cookbook template, each receipe is divided as such: 
+
+- "I want to...": what you want to do 
+- "Here's how to": how to do this 
+- "Ok, but why?": more explanations about the solution
+- "See also": further references if you want to go deeper
+
+## Who is this cookbook for?  {-}
+
+Anybody interested in learning more about {purrr}, either by reading this from cover to cover (well... figuratively speaking), of by picking what you find interesting. 
+
+## Before reading  {-}
+
+We expect the reader to be a little bit familiar with R, and with the core packages from the tidyverse. 
+
+Copy and paste the below code to be sure you have all the packages you need.
+
+```{r eval = FALSE}
+install.packages("tidyverse")
+install.packages("broom")
+install.packages("rvest")
+install.packages("attempt")
+install.packages("tidystringdist")
+install.packages("tidytext")
+```
+
+Let's launch the tidyverse to be sure we have everything we need: 
+
+```{r}
+library(tidyverse)
+```
+
+
+## You want another receipe {-}
+
+For another receipe, please ask on this issue. 
+
+## You want to share a receipe {-}
+
+I'll be glad to add other {purrr} receipes, so if ever you want to share one (or more), feel free to make a PR on the GitHub repo.
+
+## What to do if you find a typo  {-}
+
+Nobody's perfect and this book might contains typos. So please, yes please, open a PR (or feel free to reach me on [Twitter](https://twitter.com/_ColinFay))

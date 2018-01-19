@@ -1,0 +1,18 @@
+[
+  {
+"id": "066062",
+"name": "Observatory Hill",
+"label": "Sydney City",
+"tz": "Australia/Sydney",
+"record_start": "1910",
+"record_end": "2017"
+},
+{
+  "id": "067105",
+  "name": "Richmond RAAF",
+  "label": "Sydney West",
+  "tz": "Australia/Sydney",
+  "record_start": "1939",
+  "record_end": "2017"
+}
+]

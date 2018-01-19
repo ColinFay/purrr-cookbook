@@ -1,0 +1,90 @@
+# Code Optimisation {#optim}
+
+## Compose functions
+
+### I want to... 
+
+Write a function that wraps other functions. 
+
+### Here's how to:   
+
+```{r}
+library(broom)
+tidy_lm <- compose(tidy, lm)
+tidy_lm(Sepal.Length ~ Species, data = iris) 
+```
+
+### Ok, but why? 
+
+`compose(y, x)` composes a function that will do `y(x())`. 
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 5: code optimization](http://colinfay.me/purrr-code-optim/)
+
+---
+
+## Prefilled functions
+
+### I want to... 
+
+Prefill a function so that I won't have to specify the arguments any time I use it. 
+
+### Here's how to:   
+
+```{r}
+mean_na_rm <- partial(mean, na.rm = TRUE)
+mean_na_rm(airquality$Ozone)
+```
+
+### Ok, but why? 
+
+`partial(f, args = "x")` returns a function with a prefilled function with `args = "x"`.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 5: code optimization](http://colinfay.me/purrr-code-optim/)
+
+
+---
+
+## Negate a function
+
+### I want to... 
+
+Inverse what a function does. 
+
+### Here's how to: 
+
+```{r}
+is_not_numeric <- negate(is.numeric)
+is_not_numeric("this")
+```
+
+### Ok, but why? 
+
+`negate(f)` returns a function that does `!f(...)`. 
+
+### See also
+
+---
+
+## Negate a function
+
+### I want to... 
+
+Change what input my function can take. 
+
+### Here's how to: 
+
+```{r}
+lifted_is_na <- lift_ld(is.na)
+lifted_is_na(1,2,3,NA)
+```
+
+### Ok, but why? 
+
+The `lift_*` family of functions change the type of input of other function. 
+
+### See also
+

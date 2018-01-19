@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1516363200897.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "13902B70",
+    "lastKnownWriteTime" : 1516395549,
+    "last_content_update" : 1516395549143,
+    "path" : "~/Seafile/documents_colin/R/purrrcookbook/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+        "cursorPosition" : "39,90",
+        "scrollLine" : "28"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

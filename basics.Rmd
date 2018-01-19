@@ -1,0 +1,147 @@
+# purrr basics {#intro}
+
+```{r echo = FALSE}
+library(purrr)
+```
+
+## map function 
+
+### I want to... 
+
+Start using {purrr}. 
+
+### Here's how to:  
+
+The base skeleton of {purrr} iteration functions are: 
+
+```{r eval = FALSE}
+library(purrr)
+map(.x, .f, ...)
+```
+
+### Ok, but why? 
+
+In this skeleton:
+
++ `.x` is a list, a data.frame or a vector.
++ `.f` is the function, formula or atomic vector that will be applied on each element of `.f`.
+
+Here, what `map` does is applying the function to each element of a list. The returned object is always a list.
+
+### See also 
+
++ [A introduction to purrr](https://github.com/cwickham/purrr-tutorial)
+
+---
+
+## map_* functions
+
+### I want to... 
+
+Control the output of my iterations. 
+
+### Here's how to:
+
+```{r}
+# Returns a dbl
+map_dbl(1:10, sqrt)
+```
+
+### Ok, but why?
+
+You can control the output of your map with these functions: `map_lgl` `map_chr` `map_int` `map_dbl` `map_dfr` `map_dfc`. 
+
+### See also 
+
++ [R for Data Science - 21.5 The map functions](http://r4ds.had.co.nz/iteration.html#the-map-functions)
+
+---
+
+## Mappers
+
+### I want to... 
+
+Create a function on the fly.
+
+### Here's how to:
+
+```{r}
+map_dbl(1:10, ~ .x + 2)
+```
+
+### Ok, but why?
+
+One sided formulaes, also called mappers, can be created as the `.f` argument of map. It is build with `~`, then `.x` refers to the element of the list in `.x`. 
+
+When mapping on two elements, you can use `.x` and `.y`. With more than two elements, refer to them with `..1`, `..2`, `..3`, etc. 
+
+### See also 
+
++ [R for Data Science - 21.5.1 Shortcuts](http://r4ds.had.co.nz/iteration.html#shortcuts)
+
+---
+
+## map on 2 elements
+
+### I want to... 
+
+map over two lists.
+
+### Here's how to:
+
+```{r}
+map2_chr(letters, LETTERS, paste)
+```
+
+### Ok, but why?
+
+`map2` and friends (`map2` `map2_lgl` `map2_int` `map2_dbl` `map2_chr` `map2_dfr` `map2_dfc`) allows to map over two elements. 
+
+### See also 
+
++ [R for Data Science - 21.7 Mapping over multiple arguments](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
+
+---
+
+## map on more elements
+
+### I want to... 
+
+map over more than two lists. 
+
+### Here's how to:
+
+```{r}
+l <- list(a = 1:3, b = 2:4, c = 3:5)
+pmap_dbl(l, ~ ..1 + ..2 + ..3)
+```
+
+### Ok, but why?
+
+`pmap` and friends (`pmap_lgl` `pmap_int` `pmap_dbl` `pmap_chr` `pmap_dfr` `pmap_dfc`) allows to map over more than two elements. 
+
+### See also 
+
++ [R for Data Science - 21.7 Mapping over multiple arguments](http://r4ds.had.co.nz/iteration.html#mapping-over-multiple-arguments)
+
+---
+
+## Iteration for side effect
+
+### I want to... 
+
+Iterate only for side effect.
+
+### Here's how to:
+
+```{r}
+walk(1:2, plot)
+```
+
+### Ok, but why?
+
+`walk` is the silent conterpart of map, but invisible: you call it just for side effects. `map_*`, `map2_*`, `pwalk` and friends also exists. 
+
+### See also
+
++ [R for Data Science - 21.8 Walk](http://r4ds.had.co.nz/iteration.html#walk)

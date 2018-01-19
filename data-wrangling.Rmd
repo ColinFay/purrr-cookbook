@@ -1,0 +1,114 @@
+# Data Wrangling {#wrangling}
+
+## Read csvs
+
+### I want to... 
+
+Read a list of csv and turn them all into a data frame. 
+
+### Here's how to:   
+
+```{r message = FALSE}
+files <- list.files(pattern = "csv", full.names = TRUE) %>% 
+  set_names(basename(.))
+full <- map_df(files, readr::read_csv, .id = "file")
+```
+
+### Ok, but why? 
+
+`map_df` maps the read_csv on all the files, and returns a data.frame. The `.id` is used to keep track of the original file. 
+
+### See also 
+
+
+---
+
+## Remove the NA
+
+### I want to... 
+
+Remove the NA from my list. 
+
+### Here's how to:   
+
+```{r}
+l <- list(1, NA, "a", "b", NA)
+discard(l, is.na)
+```
+
+### Ok, but why? 
+
+`discard` is the opposite of `keep`, and removes all the elements that validate a condition. 
+
+### See also 
+
+
+
+---
+
+## List append
+
+### I want to... 
+
+Add an element at the end of all my sublists. 
+
+### Here's how to: 
+
+```{r}
+l <- list(list(1:10, 1:20), list(20:30, 40:50))
+modify_depth(l, 2, ~ prepend(.x, sum(.x)))
+```
+
+### Ok, but why? 
+
+`modify_depth` allows to map function in sublists at a given depth. 
+
+`prepend` adds a element to the list at a givent index. If no index is given, the element is put at the beggining of the list. 
+
+### See also
+
+---
+
+## Position matching
+
+### I want to... 
+
+Find the first argument that matches a condition. 
+
+### Here's how to: 
+
+```{r}
+l <- 22:143
+detect_index(l, ~ sqrt(.x) == 9)
+```
+
+### Ok, but why? 
+
+`detect_index` returns the position of the first argument matching the condition. `detect` alone returns the value. 
+
+You can pass the `.right` argument to these function, so that the search starts from the end of the list. 
+
+### See also
+
+---
+
+## Cut a list 
+
+### I want to... 
+
+Takes all the arguments from a list until the condition is met. 
+
+### Here's how to: 
+
+```{r}
+l <- 22:143
+head_while(l, ~ sqrt(.x) < 9)
+```
+
+### Ok, but why? 
+
+`head_while`, and its counterpart `tail_while`, take a list and perform a `head` or `tail` until a predicate is validated. 
+
+### See also
+
+

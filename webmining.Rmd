@@ -1,0 +1,228 @@
+# Webmining {#webmining}
+
+## Status code 
+
+### I want to...
+
+Create a status code checker.
+
+### Here's how to 
+
+```{r}
+library(httr)
+get_status <- compose(status_code, GET)
+get_status("colinfay.me")
+```
+
+### Ok, but why?
+
+`compose(y, x)` composes a function that will do `y(x())`. So here, `get_status("url")` will do `status_code(GET("url"))`.
+
+### See also
+
+---
+
+## Check status code
+
+### I want to...
+
+Check for http status code for a list of pages. 
+
+### Here's how to 
+
+```{r}
+urls <- c("http://colinfay.me", "http://thinkr.fr", "reallynotanadress")
+get_status <- compose(status_code, GET)
+map(urls, get_status) %>% every(~ .x == 200)
+```
+
+### Ok, but why?
+
+200 is a status code that indicates that the connexion went smoothly. The `every` function here checks if all the status code we just `GET` are equal to 200. 
+
+### See also 
+
+--- 
+## Clean a list of urls
+
+### I want to...
+
+Keep only the 200 codes from my list of `urls`. 
+
+### Here's how to 
+
+```{r}
+urls <- c("http://colinfay.me", "http://thinkr.fr", "reallynotanadress")
+get_status <- compose(status_code, GET)
+map(urls, get_status) %>% set_names(nm = urls) %>% keep(~ .x == 200)
+```
+
+### Ok, but why?
+
+`set_names` sets the name for all the elements from the list. You can either leave the function with just the list as first arg, or pass it another list of the same length as `x`. 
+
+`keep` only keeps the elements that validate the condition. 
+
+### See also 
+
+--- 
+## Scrape a list of urls which may fail
+
+### I want to...
+
+Launch a `read_html` function on a list of webpages, and some may throw an error. 
+
+The difference with the function we saw previously ? 
+
+```{r error = TRUE}
+# http status code error 
+GET("notexistingurl")
+# Error because host doesn't exist
+GET("notexistingurl.org")
+```
+
+
+### Here's how to 
+
+```{r}
+library(rvest)
+urls <- c("http://colinfay.me", "http://thinkr.fr", "reallynotanadress")
+possible_read <- possibly(read_html, otherwise = NULL)
+map(urls, possible_read) %>% set_names(urls) %>% compact() 
+```
+
+### Ok, but why
+
+`possibly` turns a function into another function that returns what is defined in otherwise in case of failure. Here, we chose to return NULL. 
+
+`compact()` removes all the elements from a list which are NULL. 
+
+### See also
+
++ [R for Data Science - 21.6 Dealing with failure](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
+
+--- 
+
+## Getting h2
+
+### I want to...
+
+Get the h2s from a list of urls. 
+
+### Here's how to 
+
+```{r}
+get_h2 <- compose(html_text,
+                  as_mapper(~ html_nodes(.x, "h2")), 
+                  read_html)
+urls <- c("http://colinfay.me", "http://thinkr.fr")
+map(urls, get_h2) %>% set_names(urls)
+```
+
+### Ok, but why? 
+
+We are composing an h2 extractor by combining `read_html`, `html_nodes` and `html_text`. We then map this extractor to a list of urls, before setting the names of the results with the `set_names` function.
+
+### See also
+
+---
+## Scrape JSON
+
+Given the following JSON files: 
+
+```
+{
+    "obs1": {
+        "id": "AA",
+        "Age": "29",
+        "Res": {
+            "test1": "17", 
+            "test2": "12"
+        }
+    },
+    "obs2": {
+        "id": "BB",
+        "Age": "35",
+        "Res": {
+            "test1": "12", 
+            "test2": "5"
+        }
+    }
+}
+```
+```{r}
+json_file <- jsonlite::read_json("test.json")
+```
+
+### I want to... 
+
+Extract all the elements in "value".
+
+### Here's how to: 
+
+```{r}
+map(json_file, "id")
+```
+
+### Ok, but why? 
+
+If you put a character vector as `.f`, `map` looks for all the elements with the name matching this vector. This call works for the first level of the list
+
+### See also
+
+---
+
+## JSON with many levels
+
+### I want to... 
+
+Extract all the test1 results.
+
+### Here's how to: 
+
+```{r}
+map(json_file, ~ purrr::pluck(.x, "Res", "test1"))
+```
+
+### Ok, but why 
+
+What we called before is a shortcut for `map(file, ~ pluck(.x, "id")`. That shortcut works on the first level of the list. If you need to go deeper, you need to explicitely specify the `pluck` call.
+
+Be careful, there is also a `pluck` in {rvest} that doesn't behave exactly as the `pluck` from {purrr}. 
+
+```{r error=TRUE}
+map(json_file, ~ rvest::pluck(.x, "Res", "test1"))
+```
+
+
+### See also
+
+---
+
+## Several API call
+
+### I want to... 
+
+Make a series of API calls
+
+### Here's how to: 
+
+```{r warning=FALSE}
+library(attempt)
+library(curl)
+caller <- function(x){
+  # verify internet connexion
+  stop_if_not(has_internet(), msg = "You should have internet to do that")
+  res <- GET(url = "https://geo.api.gouv.fr/communes", query = list(nom = x)) 
+  res$content %>% rawToChar() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
+}
+city <- c("Rennes","Vannes","Brest")
+map_df(city, caller)
+```
+
+### Ok, but why? 
+
+Here, we are calling an API which returns a JSON object that can be easily turned into a df with {jsonlite}. So we choose to use `map_df` to return a simple data.frame of the three results. 
+
+### See also
+

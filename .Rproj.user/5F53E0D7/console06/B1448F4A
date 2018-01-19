@@ -1,0 +1,233 @@
+]0;~/Seafile/documents_colin/R/purrrcookbook[?1034hMacBook-Air-de-Colin:purrrcookbook colin$ [KMacBook-Air-de-Colin:purrrcookbook colin$ sur [Kd[K[Kdo apt [K-fe[K[Kget install pandoc-citeproc
+Password:
+sudo: apt-get: command not found
+[KMacBook-Air-de-Colin:purrrcookbook colin$ bre[K[K[K
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ 
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ brew install pandoc- citeproc
+
+
+Updating Homebrew...
+[34m==>[0m [1mAuto-updated Homebrew![0m
+Updated 2 taps (homebrew/core, pachyderm/tap).
+[34m==>[0m [1mNew Formulae[0m
+bioawk    glances   mmseqs2   mpir      sickle    skafos
+[34m==>[0m [1mUpdated Formulae[0m
+[1mfreetype [32m✔[0m[0m                      librsvg
+[1mglib [32m✔[0m[0m                          libsass
+[1mhugo [32m✔[0m[0m                          libsigsegv
+[1mlibtiff [32m✔[0m[0m                       libsoup
+[1mmpfr [32m✔[0m[0m                          libstfl
+[1mnode [32m✔[0m[0m                          libtasn1
+[1mpandoc [32m✔[0m[0m                        libuv
+abyss                           libxc
+acpica                          linkerd
+agda                            llnode
+amazon-ecs-cli                  logstash
+angular-cli                     logtalk
+apm-server                      lwtools
+app-engine-go-64                lynis
+arangodb                        lz4
+arpack                          mdp
+artifactory                     mercurial
+asciinema                       meson
+astyle                          mesos
+ats2-postiats                   metricbeat
+auditbeat                       mikutter
+autogen                         mingw-w64
+aws-elasticbeanstalk            minizinc
+aws-sdk-cpp                     mitmproxy
+awscli                          mksh
+azure-cli                       mkvtoolnix
+babl                            modules
+backupninja                     mongo-c-driver
+bandcamp-dl                     mongodb
+bartycrouch                     mpfi
+basex                           mpich
+bash-preexec                    mruby
+bento4                          mycli
+bettercap                       mypy
+betty                           mysql
+binaryen                        mysql@5.5
+bind                            mysql@5.6
+binwalk                         netcdf
+biogeme                         nifi
+bitrise                         node-build
+boost-mpi                       noti
+botan                           notmuch
+braid                           nuxeo
+bsponmpi                        octave
+bubbros                         offlineimap
+buku                            ola
+bzt                             ooniprobe
+cake                            open-mpi
+cask                            openblas
+ccache                          opencoarrays
+ccm                             opencolorio
+certbot                         opencv
+cfengine                        openshift-cli
+cgal                            openssl@1.1
+chakra                          overmind
+charm-tools                     pachyderm/tap/pachctl@1.6
+chisel                          packetbeat
+chromedriver                    packmol
+chronograf                      paket
+chuck                           pandoc-citeproc
+citus                           pandoc-crossref
+clojure                         pari
+cmark-gfm                       pgplot
+cockroach                       pgpool-ii
+compcert                        pgrouting
+conan                           picard-tools
+conjure-up                      pilosa
+cp2k                            plplot
+cppcheck                        poco
+cppcms                          ponyc
+cracklib                        ponysay
+cryfs                           postgis
+csvkit                          postgrest
+csvtomd                         pre-commit
+ctop                            presto
+datetime-fortran                proof-general
+dcos-cli                        pspg
+ddgr                            pushpin
+dehydrated                      py3cairo
+devd                            pybind11
+diffoscope                      pyenv
+digdag                          pygobject
+ditaa                           pypy3
+docfx                           pyqt
+docker                          pytouhou
+docker-completion               qd
+docker-gen                      qpdf
+docker-machine-nfs              qrupdate
+dpkg                            qscintilla2
+duck                            quex
+dungeon                         r
+duplicity                       ratfor
+ejabberd                        rex
+elasticsearch                   riemann
+elixir                          root
+elvish                          rpm
+emscripten                      rtags
+entr                            rtv
+etcd                            rustup-init
+etsh                            sassc
+fabio                           scalapack
+fades                           sccache
+fb-client                       scipy
+fftw                            scummvm
+filebeat                        scummvm-tools
+fn                              selecta
+fobis                           serialosc
+fonttools                       serveit
+fox                             sfcgal
+gauge                           shadowsocks-libev
+gawk                            shairport-sync
+gcc                             shunit2
+gcc@5                           shyaml
+gcc@6                           simgrid
+geoip                           sjk
+get-flash-videos                smlnj
+get_iplayer                     snakemake
+ghi                             snapcraft
+gist                            solr
+git                             sourcery
+git-annex                       spades
+git-cola                        spdlog
+git-secret                      sphinx-doc
+git-town                        spigot
+gjs                             sql-translator
+gmsh                            ssh-audit
+gnome-doc-utils                 sslsplit
+gnutls                          statik
+gobuster                        stress-ng
+gom                             subversion
+goofys                          sundials
+googler                         svgcleaner
+grc                             svtplay-dl
+gromacs                         swi-prolog
+grpc                            swiftformat
+gsoap                           swiftlint
+gtk+                            syncthing
+gxml                            sysbench
+gzip                            taisei
+hadolint                        taktuk
+haste-client                    talloc
+heartbeat                       telegraf
+heroku                          teleport
+http-server                     terraform
+httpie                          terraform_landscape
+hypre                           terragrunt
+ib                              thefuck
+ibex                            tile38
+idnits                          tin
+idris                           tnef
+igv                             todoman
+imagemagick                     tokei
+immortal                        tomcat-native
+ipython                         tor
+ipython@5                       tracebox
+iron-functions                  trafficserver
+irssi                           transmission
+iso-codes                       travis
+jags                            ttf2eot
+jenkins                         ttyd
+jenkins-job-builder             twoping
+jenkins-lts                     twtxt
+jhipster                        txr
+joe                             u-boot-tools
+joplin                          unixodbc
+json-fortran                    urh
+juju                            vapoursynth
+juju-wait                       vcdimager
+jump                            vdirsyncer
+kafka                           veclibfort
+keepassc                        verilator
+khal                            vim@7.4
+khard                           vte
+kibana                          w-calc
+kobalt                          whatmp3
+konoha                          whohas
+kontena                         wiggle
+kotlin                          wireshark
+kubeless                        wpscan
+lammps                          wtf
+ledger                          wwwoffle
+lensfun                         wxpython
+libdvdcss                       xmrig
+libdvdread                      xonsh
+libgetdata                      xvid
+libgosu                         yara
+libmaxminddb                    yaze-ag
+libmonome                       ykpers
+libmpc                          you-get
+libpagemaker                    youtube-dl
+libphonenumber                  zabbix
+libqalculate                    zimg
+libre
+[34m==>[0m [1mDeleted Formulae[0m
+cloudbees-sdk   litmus          otto            pond
+
+[32m==>[0m [1mInstalling dependencies for pandoc-citeproc: [32mpandoc[39m[0m
+[32m==>[0m [1mInstalling pandoc-citeproc dependency: [32mpandoc[39m[0m
+[34m==>[0m [1mDownloading https://homebrew.bintray.com/bottles/pandoc-2.[0m
+[34m==>[0m [1mDownloading from https://akamai.bintray.com/03/0387e959bed[0m
+                                                                           0.1%                                                                           1.1%#                                                                          2.6%###                                                                        5.0%####                                                                       6.3%#####                                                                      8.2%#######                                                                   10.3%########                                                                  12.3%##########                                                                14.1%###########                                                               16.6%#############                                                             19.3%###############                                                           21.6%#################                                                         23.8%##################                                                        26.4%####################                                                      28.7%######################                                                    30.8%#######################                                                   33.1%#########################                                                 35.3%###########################                                               38.6%#############################                                             41.0%###############################                                           43.3%#################################                                         46.3%##################################                                        48.2%####################################                                      50.5%######################################                                    53.1%########################################                                  55.9%#########################################                                 58.1%###########################################                               60.5%#############################################                             63.0%###############################################                           65.4%################################################                          67.1%##################################################                        70.4%####################################################                      72.7%######################################################                    75.4%#######################################################                   77.8%#########################################################                 80.3%###########################################################               82.7%#############################################################             85.0%##############################################################            87.3%################################################################          89.9%##################################################################        92.4%####################################################################      94.9%#####################################################################     96.7%#######################################################################   99.3%######################################################################## 100.0%
+[34m==>[0m [1mPouring pandoc-2.1.sierra.bottle.tar.gz[0m
+[34m==>[0m [1mCaveats[0m
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+[34m==>[0m [1mSummary[0m
+🍺  /usr/local/Cellar/pandoc/2.1: 166 files, 64.2MB
+[32m==>[0m [1mInstalling [32mpandoc-citeproc[39m[0m
+[34m==>[0m [1mDownloading https://homebrew.bintray.com/bottles/pandoc-ci[0m
+[34m==>[0m [1mDownloading from https://akamai.bintray.com/63/63c095565fe[0m
+###                                                                        4.2%####                                                                       6.0%#######                                                                   10.4%#########                                                                 13.6%############                                                              17.4%##############                                                            19.8%#################                                                         24.1%###################                                                       27.6%######################                                                    30.8%########################                                                  34.4%###########################                                               38.9%##############################                                            42.2%################################                                          45.2%##################################                                        48.2%####################################                                      51.4%#######################################                                   55.4%##########################################                                58.6%############################################                              62.2%###############################################                           65.5%#################################################                         68.9%####################################################                      72.9%#######################################################                   76.9%#########################################################                 79.9%###########################################################               83.1%##############################################################            86.5%################################################################          89.7%##################################################################        92.7%#####################################################################     95.8%######################################################################## 100.0%
+[34m==>[0m [1mPouring pandoc-citeproc-0.13.sierra.bottle.tar.gz[0m
+🍺  /usr/local/Cellar/pandoc-citeproc/0.13: 65 files, 46.8MB
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ 
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ 
+[KMacBook-Air-de-Colin:purrrcookbook colin$ git init
+Initialized empty Git repository in /Users/colin/Seafile/documents_colin/R/purrrcookbook/.git/
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git add -A
+]0;~/Seafile/documents_colin/R/purrrcookbookMacBook-Air-de-Colin:purrrcookbook colin$ git commit -a -m "first commit 👶"

@@ -1,0 +1,37 @@
+json_object <- '[
+  {
+"id": "066062",
+"name": "Observatory Hill",
+"label": "Sydney City",
+"tz": "Australia/Sydney",
+"record_start": "1910",
+"record_end": "2017"
+},
+{
+  "id": "067105",
+  "name": "Richmond RAAF",
+  "label": "Sydney West",
+  "tz": "Australia/Sydney",
+  "record_start": "1939",
+  "record_end": "2017"
+}
+]'
+a <- tempdir()
+write(json_object, file.path(a, "a.json"))
+stations <- jsonlite::fromJSON(file.path(a, "a.json"))
+
+
+stations = RJSONIO::fromJSON("https://goo.gl/U7C3MP")
+
+map(stations, "name") 
+stations %>% map(~ pluck(., "name"))
+
+
+library(tidyverse)     # purrr is in here!
+library(RJSONIO)
+
+stations = fromJSON("https://goo.gl/U7C3MP")
+str(stations)
+
+stations %>% :pluck(3, "name")
+

@@ -1,0 +1,277 @@
+# Statistics {#stats}
+
+```{r}
+set.seed(2811)
+```
+
+## Compute the mean 
+
+### I want to... 
+
+Get the mean of vectors of unequal length. 
+
+### Here's how to:
+
+```{r}
+numbers <- list(rnorm(10), rnorm(10), rnorm(1000))
+trim <- 20
+na_rm <- TRUE
+pmap_dbl(list(numbers, trim, na_rm), ~ mean(..1, ..2,..3))
+```
+
+### Ok, but why?
+
+`pmap` takes a list of list as an input, and send them to the function. In `.f`, you can refer to the list arguments with their position: here, `..1`, `..2` and `..3`.
+
+### See also 
+
+---
+
+## Running a shapiro test
+
+Given the dataset `airquality`.
+
+### I want to... 
+
+Look for normality on all columns, and know the one which are normal: 
+
+### Here's how to:   
+
+```{r}
+map(airquality, shapiro.test) %>% keep(~ .x$p.value > 0.05)
+```
+
+### Ok, but why? 
+
+In R, data.frame are __lists of vectors of same length__. So, you can apply a function the same way you would apply a function on any list. Here, we are mapping a `shapiro.test`, on all columns, and we `keep` only the elements with a `.x$p.value` which is more than 0.05.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## Test only numeric columns
+
+### I want to... 
+
+Make sure I make my statistical test on numeric values. 
+
+### Here's how to:   
+
+```{r}
+map_if(.x = iris, .p = is.numeric, .f = shapiro.test)
+```
+
+### Ok, but why? 
+
+`map_if` runs `.f` only if the `.x` verifies the condition `.p`.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## cor.test
+
+### I want to... 
+
+Make a bulk cor.test of all my variables.
+
+### Here's how to:   
+
+```{r}
+library(tidystringdist) # Works since v0.1.2 
+comb <- tidy_comb_all(names(airquality))
+pmap(comb, ~ cor.test(airquality[[.x]], airquality[[.y]])) %>% 
+  map_df(broom::tidy) %>% 
+  cbind(comb, .) %>%
+  select(V1:parameter)
+```
+
+### Ok, but why? 
+
+`comb` is a table containing all combinations of the names of the columns. What we do is mapping a `cor.test` on all these combinations by extracting, each time, the column as a vector, with `airquality[[.x]]` and `airquality[[.y]]`. 
+
+`pmap` allows to use a list as a signe input.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## Linear regression
+
+### I want to... 
+
+Get the r.squared of each of the possible lm of airquality combinations.
+
+### Here's how to:   
+
+```{r}
+res <- pmap(comb, ~ lm(airquality[[.x]] ~ airquality[[.y]]))
+get_rsquared <- compose(as_mapper(~ .x$r.squared), summary)
+map_dbl(res, get_rsquared)
+```
+
+### Ok, but why? 
+
+We're building a model of all combinations with `pmap`, just as before with `cor.test`.
+
+Then, the `get_rsquared` function is a composition of extracting the r.squared of the summary of a lm result. `compose(x, y)` allows to build `x(y())`. Here, we are combining a mapper extracting the `r.squared` element out of the `summary()` of a `lm`.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## significant r.squared
+
+### I want to... 
+
+Know if some r.square are above O.5 :
+
+### Here's how to:   
+
+```{r}
+res <- pmap(comb, ~ lm(airquality[[.x]] ~ airquality[[.y]]))
+get_rsquared <- compose(as_mapper(~ .x$r.squared), summary)
+map_dbl(res, get_rsquared) %>% some(~ .x > 0.5)
+```
+
+### Ok, but why? 
+
+`some` checks if any of the input validate the condition.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## test and validation
+
+### I want to... 
+
+Create 20 test and validation datasets.
+
+### Here's how to:   
+
+```{r message=FALSE}
+# From http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3.csv
+titanic <- readr::read_csv("titanic.csv")
+train <- rerun(20, sample_frac(titanic, size = 0.8))
+validation <- map(train, ~ anti_join(titanic, .x))
+```
+
+### Ok, but why? 
+
+`rerun` runs the sampling  20 times. To obtain the 20 validation sets, we anti-join each elements of the train list with the original dataframe. That way, `train[1]` + `validation[1]` = `titanic`, `train[2]` + `validation[2]` = `titanic`, etc
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## rpart
+
+### I want to... 
+
+Create 20 `rpart`, modeled on my 20 elements in the `test` list.
+
+### Here's how to:   
+
+```{r}
+library(rpart)
+rpart_pimped <- partial(rpart, formula = survived ~ sex, method = "class")
+res <- map(train, rpart_pimped)
+res[[1]]
+```
+
+### Ok, but why? 
+
+`partial` allows to build a prefil function, which is then mapped on each element.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## Make prediction
+
+### I want to... 
+
+Make prediction based on my models
+
+### Here's how to:   
+
+```{r}
+prediction <- map2(validation, res, ~ predict(.y, .x, type = "class"))
+w_prediction <- map2(validation, prediction, ~ mutate(.x, prediction = .y))
+```
+
+### Ok, but why? 
+
+`map2` allows to map on two arguments.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## Confusion matrix
+
+### I want to... 
+
+Create a conf matrix on all these results:
+
+### Here's how to:   
+
+```{r}
+library(caret)
+conf_mats <- map(w_prediction, ~ confusionMatrix(.x$prediction, .x$survived))
+```
+
+### Ok, but why? 
+
+You can use `.x` as many times as you want in `.f`.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)
+
+---
+
+## Sensitivity and Specificity
+
+### I want to... 
+
+Detect which models have a specificity above 0.7 and sensitivity above 0.85 (randomly chosen numbers).
+
+### Here's how to:   
+
+```{r}
+keep_index <- function(.x, .p, ...) {
+  sel <- purrr:::probe(.x, .p, ...)
+  which(sel)
+}
+sens <- map_dbl(conf_mats, ~ .x$byClass["Sensitivity"]) %>% keep_index(~ .x > 0.85)
+spec <- map_dbl(conf_mats, ~ .x$byClass["Specificity"]) %>% keep_index(~ .x > 0.7)
+keep(sens, map_lgl(sens, ~ .x %in% spec))
+```
+
+### Ok, but why? 
+
+We have created a function that returns the position of elements that validates a condition. `sens` is the vector containing the position with sensitivity above 0.85, `spec` the vector for specificity above 0.7.
+
+Then, we pass to `keep` a vector of logical built with `map_lgl`. This vector tells if each elements of `sens` is or isn't in `spec`.
+
+### See also 
+
++ [A Crazy Little Thing Called {purrr} - Part 6 : doing statistics](http://colinfay.me/purrr-statistics/)

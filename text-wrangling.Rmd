@@ -1,0 +1,74 @@
+# Text Mining {#tm}
+
+## Build regex 
+
+### I want to...
+
+Automatically build a regex with or `|`
+
+### Here's how to: 
+
+```{r}
+regex_build <- function(...){
+    reduce(list(...), ~ paste(.x, .y, sep = "|"))
+}
+regex_build("one","two","three", "four")
+```
+
+### Ok, but why?
+
+`reduce` turns a list into one value by recursively applying a binary function to the list. In other words, `reduce(list("one","two","three"), ~ paste(.x, .y, sep = "|"))` does `paste("one", paste("two", paste("three", "four", sep = "|"), sep = "|"), sep = "|")`. 
+
+### See also
+
+---
+
+## Regex extraction 
+
+### I want to... 
+
+Extract the elements from a list of words that match a regex
+
+### Here's how to: 
+
+```{r}
+# Random words from https://www.randomlists.com/random-words
+words <- c("copper", "explain", "ill-fated", "truck", "neat","unite","branch","educated","tenuous", "hum","decisive","notice")
+# Extract words that end with a "e"
+my_regex <- "e$"
+keep(words, ~ grepl(my_regex, .x))
+```
+
+### Ok, but why? 
+
+`keep` only keeps the element matching the predicate. Here, we're using `grepl`, that returns TRUE or FALSE if the expression is found in the string. 
+
+### See also
+
+---
+
+## Collapse a list of words
+
+Given the following list of hashtags: 
+
+```{r}
+hash <- list(tweet1 = c("#RStats", "#Datascience"), tweet2 = c("#RStats", "#BigData"))
+```
+
+### I want to... 
+
+Turn my list of words into a simple vector.
+
+### Here's how to: 
+
+```{r}
+simplify(hash) %>% paste(collapse = " ")
+```
+
+### Ok, but why? 
+
+Simplify turns a list of n\*m elements into a vector of lenght n\*m. We then paste all the elements together, using the `collapse` argument from `paste`.
+
+### See also
+
+

@@ -1,0 +1,14 @@
+book_filename: "purrrcookbook"
+language:
+  ui:
+    chapter_name: "Chapter "
+rmd_files: [
+  "index.rmd",
+  "intro.Rmd",
+  "basics.Rmd", 
+  "statistics.Rmd", 
+  "webmining.Rmd", 
+  "text-wrangling.Rmd", 
+  "code-optim.Rmd", 
+  "data-wrangling.Rmd"
+]

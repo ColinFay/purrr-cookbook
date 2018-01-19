@@ -1,0 +1,40 @@
+--- 
+title: "purrr cookbook"
+author: "Colin Fay"
+date: "Last update on: `r Sys.Date()`"
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: true
+links-as-notes: true
+colorlinks: true
+description: "A {purrr} cookbookdown."
+---
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'purrr'
+), 'packages.bib')
+```
+
+# Welcome {-}
+
+<div align = "center">
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("purrr_hex.png")
+```
+
+</div>
+
+This "cookbookdown" covers a series of common receipes you can do with {purrr}. 
+
+It's based on several blogposts written on [colinfay.me](http://colinfay.me/tags/purrr/), some {purrr} code shared [on Twitter](https://twitter.com/i/moments/950031718521671680), and on some use-cases found or fought in the wild wild data world.
+
+As with any cookbook, this bookdwon is not intended at explaining in details what {purrr} does or how the functions used works. There is a short discussion after each receipes to quickly explain what the code does, but we won't go into specific details about each piece of code. For example, you won't find an explanation on the Shapiro Test in the chapter talking about this test. I also try to include (as much as possible) references to other articles / blogposts / books that can help you go deeper.
+
+And if ever you need more explanation, reach me on [Twitter](https://twitter.com/_ColinFay)!

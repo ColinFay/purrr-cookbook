@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1516363401681.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8316535A",
+    "lastKnownWriteTime" : 1516397613,
+    "last_content_update" : 1516397613795,
+    "path" : "~/Seafile/documents_colin/R/purrrcookbook/webmining.Rmd",
+    "project_path" : "webmining.Rmd",
+    "properties" : {
+        "cursorPosition" : "12,39",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
